@@ -1,0 +1,31 @@
+.subunit.Hokkaido {
+    fill: #0F6177;
+}
+
+.subunit.Honshu   {
+    fill: #0B8389;
+}
+
+.subunit.Shikoku {
+    fill: #1BA39C;
+}
+
+.subunit.Kyushu{
+    fill: #16A086;
+}
+
+.subunit.Japan{
+    fill: #1BBC9B;
+}
+
+.subunit.Volcano {
+    display: none;
+}
+
+.subunit.Izu-shoto{
+    display: none;
+}
+
+.subunit.Nansei-shoto{
+    display: none;
+}
