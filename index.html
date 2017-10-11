@@ -5,24 +5,22 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/map.css">
     <script src="js/three.min.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="js/d3.min.js"></script>
     <script src="js/topojson.min.js"></script>
 </head>
 <body>
-
 <script>
-
     var width = window.innerWidth,
             height = window.innerHeight;
     if(height < 700){
         height = 700
     }
 
-    var projection = d3.geo.mercator()
+    var projection = d3.geoMercator()
             .center([130, 40.5])
             .scale(1800);
 
-    var path = d3.geo.path()
+    var path = d3.geoPath()
             .projection(projection);
 
 
@@ -39,7 +37,6 @@
                 })
                 .attr('d', path);
     });
-
 </script>
 </body>
 </html>
