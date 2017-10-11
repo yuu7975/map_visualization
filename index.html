@@ -2,41 +2,16 @@
 <head>
     <meta charset="utf-8">
     <title>Map</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/map.css">
     <script src="js/three.min.js"></script>
-    <script src=""></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="js/topojson.min.js"></script>
 </head>
 <body>
-<style>
-
-    .subunit.Hokkaido {
-        fill: #0F6177;
-    }
-
-    .subunit.Honshu   {
-        fill: #0B8389;
-    }
-
-    .subunit.Shikoku {
-        fill: #1BA39C;
-    }
-
-    .subunit.Kyushu{
-        fill: #16A086;
-    }
-
-    .subunit.Japan{
-        fill: #1BBC9B;
-    }
-
-    .subunit.Volcano { display: none; }
-
-    .subunit.Izu-shoto{ display: none; }
-
-    .subunit.Nansei-shoto{ display: none; }
-
-</style>
 
 <script>
+
     var width = window.innerWidth,
             height = window.innerHeight;
     if(height < 700){
@@ -56,7 +31,7 @@
             .attr("width", width)
             .attr("height", height);
 
-    d3.json('jpn.json', function(error, output){
+    d3.json('./jpn.json', function(error, output){
         svg.selectAll('.subunit')
                 .data(topojson.feature(output, output.objects.subunits).features).enter().append("path")
                 .attr('class', function(d){
@@ -67,5 +42,4 @@
 
 </script>
 </body>
-
 </html>
