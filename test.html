@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Map</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/map.css">
+    <script src="js/three.min.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/topojson.min.js"></script>
+</head>
+<body>
+<script>
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    var svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    var projection = d3.geoMercator()
+        .center([136, 38])
+        .translate([width/2, height/2])
+        .scale(1300);
+
+    var path = d3.geoPath()
+        .projection(projection);
+
+    console.log(topojson);
+
+    d3.json("jpn_01.json", function (json) {
+        svg.selectAll("path")
+            .data(topojson.feature(json, json.objects.ne_pref_japan_geo).features)
+            .enter()
+            .append("path")
+            .attr("stroke", "#fff")
+            .attr("fill", "none")
+            .attr("d", path)
+    })
+
+</script>
+</body>
+</html>
